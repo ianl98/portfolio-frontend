@@ -1,17 +1,18 @@
 <div class="card mt-3 card-border">
-    <div class="row g-0 mx-3">
-  
-        <h3 class="card-title">Educación</h3>
-  
-        <div class="btn-add">
-  
-            <a href="#"><i class="fas fa-plus text-dark"></i></a>
     
-        </div>
+    <h3 class="card-title g-0 mx-3">Educación</h3>
+
+    <div class="btn-add g-0 mx-3">
+  
+        <app-add-education></app-add-education>
+
+    </div>
+
+    <div class="row g-0 mx-3 mt-2" *ngFor="let educacion of educaciones">
   
         <div class="col-md-1">
   
-            <img src="./assets/img/bg-portfolio.jpg" class="img-fluid mx-1" alt="logo institución" style="height: 90px;">
+            <img src="{{'http://localhost:8080/api/educacion/getImage/'+educacion.id}}" class="img-fluid mx-1" alt="logo institución" style="height: 90px;">
   
         </div>
   
@@ -19,7 +20,7 @@
           
         <div class="card-body">
   
-            <h5 class="card-text">INCADE</h5>
+            <h5 class="card-text">{{educacion.institucion}}</h5>
   
             <div class="btn-edit-about">
   
@@ -29,9 +30,9 @@
     
             </div>
   
-              <p class="card-text"><small class="">Técnico Superior en Programación y Análisis de sistemas</small></p>
+              <p class="card-text"><small class="">{{educacion.carrera}}</small></p>
   
-              <p class="card-text"><small class="text-muted">2017-2021</small></p>
+              <p class="card-text"><small class="text-muted">{{educacion.inicio|date:'dd/MM/yyyy'}} - {{educacion.fin|date:'dd/MM/yyyy'}}</small></p>
             </div>
   
           </div>

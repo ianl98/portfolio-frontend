@@ -9,7 +9,9 @@ import { EducationComponent } from './components/education/education.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddEducationComponent } from './components/add-education/add-education.component';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ExperienceComponent,
     EducationComponent,
-    FooterComponent
+    FooterComponent,
+    AddEducationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
