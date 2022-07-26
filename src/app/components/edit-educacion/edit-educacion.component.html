@@ -1,0 +1,47 @@
+<ng-template #content let-modal>
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Educacion</h5>
+              <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="onUpdate()" enctype="multipart/form-data" method="post">
+                    <div class="row mb-3">
+                      <label for="institucion" class="col-form-label">Institucion</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="institucion" name="institucion" formControlName="institucion">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="carrera" class="col-form-label">Carrera</label>
+                      <div class="col-sm-12">
+                        <input type="text" class="form-control" id="carrera" name="carrera" formControlName="carrera">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="foto" class="col-form-label">Logo Institución</label>
+                        <div class="col-sm-12">
+                          <input type="file" class="form-control" id="foto" accept="image/*" name="foto" (change)="onImageUpload($event)" formControlName="foto">
+                          <img src="{{'http://localhost:8080/api/educacion/getImage/'+dataEntrante.id}}" height="200" *ngIf="!imgUrl">
+                          <img [src]="imgUrl" height="200">
+                        </div>
+                      </div>
+                    <div class="row mb-3">
+                        <label for="inicio" class="col-form-label">Inicio</label>
+                        <div class="col-sm-6">
+                          <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="fin" class="col-form-label">Fin (o fecha prevista)</label>
+                        <div class="col-sm-6">
+                          <input type="date" class="form-control" id="fin" name="fin" formControlName="fin">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+                    </div>
+                  </form>
+            </div>
+  </ng-template>
+  
+  <button (click)="open(content)"><i class="fas fa-pen text-dark"></i></button>

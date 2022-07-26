@@ -20,12 +20,12 @@ export class EducacionService {
     return this.httpClient.post<any>(this.educacionURL + 'upload', formData, {headers: header});
   }
 
-  public saveEducacion(educacion: Educacion): Observable<any> {
-    return this.httpClient.post<any>(this.educacionURL + 'save', educacion);
+  public saveEducacion(formData: FormData, header: HttpHeaders): Observable<any> {
+    return this.httpClient.post<any>(this.educacionURL + 'save', formData, {headers: header});
   }
 
-  public updateEducacion(id: number, educacion: Educacion): Observable<any> {
-    return this.httpClient.put<any>(this.educacionURL + `edit/${id}`, educacion);
+  public updateEducacion(id: number, formData: FormData, header: HttpHeaders): Observable<any> {
+    return this.httpClient.put<any>(this.educacionURL + `edit/${id}`, formData, {headers: header});
   }
 
   public deleteEducacion(id: number): Observable<any>{

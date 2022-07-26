@@ -18,7 +18,7 @@ export class AddEducationComponent implements OnInit {
   institucion = '';
   carrera = '';
   foto = '';
-  inicio = new Date;
+  inicio = '';
   fin = '';
   uploadedImage : any;
 
@@ -35,7 +35,7 @@ export class AddEducationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+  
   }
 
   public onImageUpload(event: any) {    
@@ -43,7 +43,8 @@ export class AddEducationComponent implements OnInit {
   }
 
   onCreate() {
-    const imageFormData = new FormData();
+
+   /* const imageFormData = new FormData();
     imageFormData.append('file',this.uploadedImage, this.uploadedImage.name);
 
     let headers = new HttpHeaders();
@@ -55,20 +56,31 @@ export class AddEducationComponent implements OnInit {
     error: err => {
       console.log(err);
     }
-  })
-
+  })*/
+  
     this.foto = this.uploadedImage.name;
 
     const educacion = new Educacion(this.institucion, this.carrera, this.foto, this.inicio, this.fin);
-    this.educacionService.saveEducacion(educacion).subscribe({next: data => {
-      Swal.fire({
+
+    const formData = new FormData();
+
+    formData.append('file', this.uploadedImage, this.uploadedImage.name);
+    formData.append('educacion', JSON.stringify(educacion));
+
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+
+    this.educacionService.saveEducacion(formData, headers).subscribe({next: data => {
+        console.log(data);
+        Swal.fire({
         icon: 'success',
         title: 'Éxito',
         text: 'Se ha guardado correctamente la educacion',
-        allowOutsideClick: false
+        allowOutsideClick: false,
       }).then((result) =>{
         if (result.isConfirmed) {
-          this.router.navigate([''])
+          window.location.reload();
         }
       })
     },
@@ -78,8 +90,12 @@ export class AddEducationComponent implements OnInit {
         title: 'Error',
         text: 'Fallo al guardar la educacion',
         allowOutsideClick: false
+      }).then((result) =>{
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
       })
-      console.log(err);
+      console.log(err)
     }
   })
   }

@@ -12,7 +12,7 @@
   
         <div class="col-md-1">
   
-            <img src="{{'http://localhost:8080/api/educacion/getImage/'+educacion.id}}" class="img-fluid mx-1" alt="logo institución" style="height: 90px;">
+            <img src="{{'http://localhost:8080/api/educacion/getImage/'+educacion.id}}" class="img-fluid mx-1" alt="logo institución" style="height: 120px; width: 120px;">
   
         </div>
   
@@ -24,9 +24,9 @@
   
             <div class="btn-edit-about">
   
-                <a href="#"><i class="fas fa-pen text-dark mx-3"></i></a>
+                <app-edit-educacion [dataEntrante]="educacion"></app-edit-educacion>
   
-                <a href="#"><i class="fas fa-trash text-dark"></i></a>
+                <button (click)="deleteEducacion(educacion.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
   

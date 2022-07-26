@@ -11,7 +11,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEducationComponent } from './components/add-education/add-education.component';
+import { RouterModule, Routes } from '@angular/router';
+import { EditEducacionComponent } from './components/edit-educacion/edit-educacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+const appRoutes: Routes = [
+  {path: '', component: AppComponent}
+]; 
 
 @NgModule({
   declarations: [
@@ -21,13 +28,16 @@ import { AddEducationComponent } from './components/add-education/add-education.
     ExperienceComponent,
     EducationComponent,
     FooterComponent,
-    AddEducationComponent
+    AddEducationComponent,
+    EditEducacionComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

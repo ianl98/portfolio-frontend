@@ -3,10 +3,10 @@ export class Educacion {
     institucion: string;
     carrera: string;
     foto: string;
-    inicio: Date;
+    inicio: string;
     fin: string;
 
-    constructor(institucion: string, carrera: string, foto: string, inicio: Date, fin: string){
+    constructor(institucion: string, carrera: string, foto: string, inicio: string, fin: string){
         this.institucion = institucion;
         this.carrera = carrera;
         this.foto = foto;
