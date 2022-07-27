@@ -16,6 +16,8 @@ import { EditEducacionComponent } from './components/edit-educacion/edit-educaci
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { AddSkillComponent } from './components/add-skill/add-skill.component';
 
 
 const appRoutes: Routes = [
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
     AddEducationComponent,
     EditEducacionComponent,
     AddExperienceComponent,
-    EditExperienceComponent
+    EditExperienceComponent,
+    SkillComponent,
+    AddSkillComponent
   ],
   imports: [
     BrowserModule,

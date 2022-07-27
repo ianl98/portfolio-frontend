@@ -1,0 +1,34 @@
+<div class="card mt-3 card-border">
+    
+    <h3 class="card-title g-0 mx-3">Habilidades</h3>
+
+    <div class="btn-add g-0 mx-3">
+  
+        <app-add-skill></app-add-skill>
+
+    </div>
+
+    <div class="row g-0 mx-3 mt-2" *ngFor="let habilidad of habilidades">
+  
+        <div class="col-md-12">
+          
+        <div class="card-body">
+  
+            <h5 class="card-text">{{habilidad.nombre}}</h5>
+
+            <p style="width: 80%;"><ngb-progressbar type="success" textType="white" [value]="habilidad.porcentaje" [showValue]="true"></ngb-progressbar></p>
+  
+            <div class="btn-edit-about">
+  
+                <app-edit-educacion [dataEntrante]="habilidad"></app-edit-educacion>
+  
+                <button (click)="deleteHabilidad(habilidad.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+    
+            </div>
+            </div>
+  
+        </div>
+  
+    </div>
+  
+</div>
