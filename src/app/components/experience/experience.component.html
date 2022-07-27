@@ -1,35 +1,49 @@
 <div class="card mt-3 card-border">
-    <div class="row g-0 mx-3">
-  
-        <h3 class="card-title">Experiencia</h3>
-  
-        <div class="btn-add">
-  
-            <a href="#"><i class="fas fa-plus text-dark"></i></a>
-  
-        </div>
-  
+    
+  <h3 class="card-title g-0 mx-3">Experiencia Laboral</h3>
+
+  <div class="btn-add g-0 mx-3">
+
+      <app-add-experience></app-add-experience>
+
+  </div>
+
+  <div class="row g-0 mx-3 mt-2" *ngFor="let experiencia of experiencias">
+
       <div class="col-md-1">
-  
-        <img src="./assets/img/bg-portfolio.jpg" class="img-fluid mx-1" alt="logo empresa" style="height: 90px;">
-  
+
+          <img src="{{'http://localhost:8080/api/experienciaLaboral/getImage/'+experiencia.id}}" class="img-fluid mx-1" alt="logo empresa" style="height: 120px; width: 120px;">
+
       </div>
-  
+
       <div class="col-md-11">
-      
-        <div class="card-body">
-  
-          <h5 class="card-text">Solver System Informática - Técnico Informático</h5>
+        
+      <div class="card-body">
+
+          <h5 class="card-text">{{experiencia.empresa}}</h5>
+
           <div class="btn-edit-about">
+
+              <app-edit-educacion [dataEntrante]="experiencia"></app-edit-educacion>
+
+              <button (click)="deleteExperienciaLaboral(experiencia.id)" class="no-border bg-white"><i class="fas fa-trash text-dark"></i></button>
   
-            <a href="#"><i class="fas fa-pen text-dark mx-3"></i></a>
-  
-            <a href="#"><i class="fas fa-trash text-dark"></i></a>
-  
+          </div>
+
+            <p class="card-text"><small class="">{{experiencia.cargo}}</small></p>
+
+            
+            <div *ngIf="experiencia.fin == 'actualidad'; then cosa else elseBlock"></div>
+
+          <p class="card-text">
+            <ng-template #cosa><small class="text-muted">{{experiencia.inicio|date:'dd/MM/yyyy'}} - {{experiencia.fin}}</small></ng-template>
+            <ng-template #elseBlock><small class="text-muted">{{experiencia.inicio|date:'dd/MM/yyyy'}} - {{experiencia.fin|date:'dd/MM/yyyy'}}</small></ng-template>
+          </p>
+
+          </div>
+
         </div>
-          <p class="card-text"><small class="">Pasantía, Jornada Parcial</small></p>
-          <p class="card-text"><small class="text-muted">Agosto 2016 - Septiembre 2016 - 1 mes, Oberá - Misiones, Argentina</small></p>
+
         </div>
+
       </div>
-      </div>
-    </div>

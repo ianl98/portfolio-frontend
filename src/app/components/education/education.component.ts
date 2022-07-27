@@ -28,10 +28,6 @@ export class EducationComponent implements OnInit {
   })
   }
 
-  cosita(){
-    console.log("prueba");
-  }
-
   deleteEducacion(id: any){
     Swal.fire({
       title: '¿Está seguro de Eliminar?',

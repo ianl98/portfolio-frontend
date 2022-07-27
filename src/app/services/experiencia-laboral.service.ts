@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ExperienciaLaboral } from '../models/experiencia-laboral';
 
@@ -16,15 +16,15 @@ export class ExperienciaLaboralService {
     return this.httpClient.get<ExperienciaLaboral[]>(this.experienciaLaboarlURL + 'all');
   }
 
-  public saveExperienciaLaboral(experienciaLaboral: ExperienciaLaboral): Observable<any> {
-    return this.httpClient.post<any>(this.experienciaLaboarlURL + 'save', experienciaLaboral);
+  public saveExperienciaLaboral(formData: FormData, header: HttpHeaders): Observable<any> {
+    return this.httpClient.post<any>(this.experienciaLaboarlURL + 'save', formData, {headers: header});
   }
 
   public updateExperienciaLaboral(id: number, experienciaLaboral: ExperienciaLaboral): Observable<any> {
     return this.httpClient.put<any>(this.experienciaLaboarlURL + `edit/${id}`, experienciaLaboral);
   }
 
-  public deleteEducacion(id: number): Observable<any>{
+  public deleteExperienciaLaboral(id: number): Observable<any>{
     return this.httpClient.delete<any>(this.experienciaLaboarlURL + `delete/${id}`);
   }
 }

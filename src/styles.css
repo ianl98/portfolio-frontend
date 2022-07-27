@@ -76,3 +76,7 @@ p {
     align-items: center;
     justify-content: center;
   }
+
+  .no-border{
+    border: none;
+}
