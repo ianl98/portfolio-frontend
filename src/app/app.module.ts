@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditEducacionComponent } from './components/edit-educacion/edit-educacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
+import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 
 
 const appRoutes: Routes = [
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     FooterComponent,
     AddEducationComponent,
     EditEducacionComponent,
-    AddExperienceComponent
+    AddExperienceComponent,
+    EditExperienceComponent
   ],
   imports: [
     BrowserModule,

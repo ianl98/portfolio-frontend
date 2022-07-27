@@ -20,8 +20,8 @@ export class ExperienciaLaboralService {
     return this.httpClient.post<any>(this.experienciaLaboarlURL + 'save', formData, {headers: header});
   }
 
-  public updateExperienciaLaboral(id: number, experienciaLaboral: ExperienciaLaboral): Observable<any> {
-    return this.httpClient.put<any>(this.experienciaLaboarlURL + `edit/${id}`, experienciaLaboral);
+  public updateExperienciaLaboral(id: number, formData: FormData, header: HttpHeaders): Observable<any> {
+    return this.httpClient.put<any>(this.experienciaLaboarlURL + `edit/${id}`, formData, {headers: header});
   }
 
   public deleteExperienciaLaboral(id: number): Observable<any>{
