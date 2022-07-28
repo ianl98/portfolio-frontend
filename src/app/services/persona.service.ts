@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Persona } from '../models/persona';
 
@@ -19,8 +19,8 @@ export class PersonaService {
     return this.httpClient.post<any>(this.personaURL + 'save', persona);
   }
 
-  public updatePersona(id: number, persona: Persona): Observable<any> {
-    return this.httpClient.put<any>(this.personaURL + `edit/${id}`, persona);
+  public updatePersona(id: number, formData: FormData, header: HttpHeaders): Observable<any> {
+    return this.httpClient.put<any>(this.personaURL + `edit/${id}`, formData, {headers: header});
   }
 
   public deletePersona(id: number): Observable<any>{

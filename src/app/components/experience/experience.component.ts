@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 export class ExperienceComponent implements OnInit {
 
   experiencias: ExperienciaLaboral [] = [];
-  mostrar= true;
 
   constructor(private experienciaLaboralService: ExperienciaLaboralService) { }
 

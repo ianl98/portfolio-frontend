@@ -19,27 +19,36 @@
     </div>
   </header>
   
+  <div *ngFor="let persona of personas">
+
   <div class="card mt-2 card-border">
   
     <img src="./assets/img/bg-portfolio.jpg" class="img-fluid card-border bg-picture" alt="fondo de portfolio">
   
-    <img src="./assets/img/image001.jpg" class="profile-picture" alt="foto mia">
+    <img src="{{'http://localhost:8080/api/persona/getImage/'+persona.id}}" class="profile-picture" alt="foto mia">
   
-    <a href="#" class="btn-edit-profile"><i class="fas fa-pen btn-edit-profile text-dark"></i></a>
+    <app-edit-person [dataEntrante]="persona"></app-edit-person>
   
     <div class="card-body">
   
-      <h3 class="card-title">Victor Ian Lindstrom Lencina</h3>
+      <h3 class="card-title">{{persona.nombre}} {{persona.apellido}}</h3>
   
-      <p class="card-text">Estudiante de Desarrollo web.</p>
+      <p class="card-text">{{persona.titulo}}</p>
   
-      <p class="card-text">Oberá-Misiones (Argentina)</p>
-      
-        <button class="btn btn-primary m-1">Tengo Interés en</button>
-           
-        <button class="btn btn-light m-1">Añadir sección</button>
-               
-        <button class="btn btn-light m-1">Más</button>
+      <p class="card-text">{{persona.localidad}}</p>
         
     </div>
   </div>
+
+  <div class="card mt-3 card-border">
+
+    <div class="card-body">
+  
+      <h3 class="card-title">Acerca de</h3>
+  
+      <p class="card-text">{{persona.sobreMi}}</p>
+  
+    </div>
+  </div>
+
+</div>

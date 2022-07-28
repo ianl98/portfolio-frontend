@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { EducationComponent } from './components/education/education.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,6 +21,7 @@ import { EditSkillComponent } from './components/edit-skill/edit-skill.component
 import { IdiomaComponent } from './components/idioma/idioma.component';
 import { AddIdiomaComponent } from './components/add-idioma/add-idioma.component';
 import { EditIdiomaComponent } from './components/edit-idioma/edit-idioma.component';
+import { EditPersonComponent } from './components/edit-person/edit-person.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +32,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    AboutComponent,
     ExperienceComponent,
     EducationComponent,
     FooterComponent,
@@ -45,7 +44,8 @@ const appRoutes: Routes = [
     EditSkillComponent,
     IdiomaComponent,
     AddIdiomaComponent,
-    EditIdiomaComponent
+    EditIdiomaComponent,
+    EditPersonComponent
   ],
   imports: [
     BrowserModule,
