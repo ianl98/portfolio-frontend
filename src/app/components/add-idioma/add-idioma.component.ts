@@ -1,37 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HabilidadService } from '../../services/habilidad.service';
-import { Habilidad } from '../../models/habilidad';
+import { IdiomaService } from '../../services/idioma.service';
+import { Idioma } from '../../models/idioma';
+import { Nivel } from 'src/app/models/nivel';
+import { NivelService } from '../../services/nivel.service';
 
 @Component({
-  selector: 'app-add-skill',
-  templateUrl: './add-skill.component.html',
-  styleUrls: ['./add-skill.component.css']
+  selector: 'app-add-idioma',
+  templateUrl: './add-idioma.component.html',
+  styleUrls: ['./add-idioma.component.css']
 })
-export class AddSkillComponent implements OnInit {
-  
+export class AddIdiomaComponent implements OnInit {
+
   form: FormGroup;
 
-  constructor(private habilidadService:HabilidadService, private formBuilder: FormBuilder) {
+  niveles: Nivel [] = [];
+
+  constructor(private idiomaService: IdiomaService, private nivelService: NivelService,private formBuilder: FormBuilder) {
 
     this.form = this.formBuilder.group({
       nombre:['',[Validators.required, Validators.minLength(3)]],
-      porcentaje:['',[Validators.required, Validators.maxLength(3)]]
+      nivel:['',[Validators.required]]
     })
-
 
    }
 
   ngOnInit(): void {
+
+    this.getLvl();
+
+  }
+
+  getLvl(){
+
+    this.nivelService.getNiveles().subscribe({next: data => {
+      this.niveles = data;
+    },
+    error: err => {
+      console.log(err);
+    }
+  })
+
   }
 
   onCreate() {
 
-    const habilidad = new Habilidad(this.form.value.nombre, this.form.value.porcentaje);
+    const nivel = new Nivel(this.form.value.nivel);
 
-    this.habilidadService.saveHabilidad(habilidad).subscribe({next: data => {
+    const idioma = new Idioma(this.form.value.nombre, nivel);
+
+    this.idiomaService.saveIdioma(idioma).subscribe({next: data => {
         console.log(data);
         Swal.fire({
         icon: 'success',

@@ -1,0 +1,36 @@
+<div class="card mt-3 card-border">
+    
+    <h3 class="card-title g-0 mx-3">Idiomas</h3>
+
+    <div class="btn-add g-0 mx-3">
+  
+        <app-add-idioma></app-add-idioma>
+
+    </div>
+
+    <div class="row g-0 mx-3 mt-2" *ngFor="let idioma of idiomas">
+  
+        <div class="col-md-12">
+          
+        <div class="card-body">
+  
+            <h5 class="card-text">{{idioma.nombre}}</h5>
+
+            {{ idioma.nivel.nombre }}
+
+            <!--<p style="width: 80%;"><ngb-progressbar type="success" textType="white" [value]="habilidad.porcentaje" [showValue]="true"></ngb-progressbar></p> -->
+  
+            <div class="btn-edit-about">
+  
+                <app-edit-skill [dataEntrante]="idioma"></app-edit-skill>
+  
+                <button (click)="deleteHabilidad(idioma.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+    
+            </div>
+            </div>
+  
+        </div>
+  
+    </div>
+  
+</div>

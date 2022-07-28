@@ -1,8 +1,9 @@
 export class Nivel {
-    id?: number;
-    nombre: string;
+    id: number;
+    nombre?: string;
 
-    constructor(nombre: string){
+    constructor( id: number, nombre?: string){
+        this.id = id;
         this.nombre = nombre;
     }
 }
