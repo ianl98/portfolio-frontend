@@ -1,0 +1,33 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Idioma</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onUpdate()" enctype="multipart/form-data" method="post">
+            <div class="row mb-3">
+              <label for="nombre" class="col-form-label">Nombre Idioma</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="nivel" class="col-form-label">Nivel de Idioma</label>
+              <div class="col-sm-12">
+                
+                    <select class="form-control" id="nivel" name="nivel" formControlName="nivel">
+
+                        <option [value]="nivel.id" selected *ngFor="let nivel of niveles">{{nivel.nombre}}</option>
+                    
+                    </select>
+                
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+            </div>
+          </form>
+    </div>
+</ng-template>
+
+<button (click)="open(content)" class="no-border"><i class="fas fa-pen text-dark"></i></button>

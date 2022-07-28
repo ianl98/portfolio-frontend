@@ -21,6 +21,7 @@ import { AddSkillComponent } from './components/add-skill/add-skill.component';
 import { EditSkillComponent } from './components/edit-skill/edit-skill.component';
 import { IdiomaComponent } from './components/idioma/idioma.component';
 import { AddIdiomaComponent } from './components/add-idioma/add-idioma.component';
+import { EditIdiomaComponent } from './components/edit-idioma/edit-idioma.component';
 
 
 const appRoutes: Routes = [
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     AddSkillComponent,
     EditSkillComponent,
     IdiomaComponent,
-    AddIdiomaComponent
+    AddIdiomaComponent,
+    EditIdiomaComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class EditSkillComponent implements OnInit {
     this.form = this.formBuilder.group({
 
       nombre:['',[Validators.required, Validators.minLength(3)]],
-      porcentaje:['',[Validators.required, Validators.maxLength(3)]],
+      porcentaje:['',[Validators.required, Validators.maxLength(3)]]
 
     })
 
