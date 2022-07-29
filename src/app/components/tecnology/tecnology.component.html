@@ -1,0 +1,32 @@
+<div class="card mt-3 card-border">
+    
+    <h3 class="card-title g-0 mx-3">Tecnologias</h3>
+
+    <div class="btn-add g-0 mx-3">
+  
+        <app-add-tecnology></app-add-tecnology>
+
+    </div>
+
+    <div class="row g-0 mx-3 mt-2" *ngFor="let tecnologia of tecnologias">
+  
+        <div class="col-md-12">
+          
+        <div class="card-body">
+  
+            <h5 class="card-text">{{tecnologia.nombre}}</h5>
+  
+            <div class="btn-edit-about">
+  
+                <app-edit-tecnology [dataEntrante]="tecnologia"></app-edit-tecnology>
+  
+                <button (click)="deleteTecnologia(tecnologia.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+    
+            </div>
+            </div>
+  
+        </div>
+  
+    </div>
+  
+</div>

@@ -22,6 +22,9 @@ import { IdiomaComponent } from './components/idioma/idioma.component';
 import { AddIdiomaComponent } from './components/add-idioma/add-idioma.component';
 import { EditIdiomaComponent } from './components/edit-idioma/edit-idioma.component';
 import { EditPersonComponent } from './components/edit-person/edit-person.component';
+import { TecnologyComponent } from './components/tecnology/tecnology.component';
+import { AddTecnologyComponent } from './components/add-tecnology/add-tecnology.component';
+import { EditTecnologyComponent } from './components/edit-tecnology/edit-tecnology.component';
 
 
 const appRoutes: Routes = [
@@ -45,7 +48,10 @@ const appRoutes: Routes = [
     IdiomaComponent,
     AddIdiomaComponent,
     EditIdiomaComponent,
-    EditPersonComponent
+    EditPersonComponent,
+    TecnologyComponent,
+    AddTecnologyComponent,
+    EditTecnologyComponent
   ],
   imports: [
     BrowserModule,
