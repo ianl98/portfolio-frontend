@@ -4,7 +4,7 @@
 
     <div class="btn-add g-0 mx-3">
   
-        <app-add-idioma></app-add-idioma>
+        <app-add-idioma *ngIf="isLogged"></app-add-idioma>
 
     </div>
 
@@ -20,11 +20,11 @@
 
             <!--<p style="width: 80%;"><ngb-progressbar type="success" textType="white" [value]="habilidad.porcentaje" [showValue]="true"></ngb-progressbar></p> -->
   
-            <div class="btn-edit-about">
+            <div class="">
   
-                <app-edit-idioma [dataEntrante]="idioma"></app-edit-idioma>
+                <app-edit-idioma [dataEntrante]="idioma" *ngIf="isLogged"></app-edit-idioma>
   
-                <button (click)="deleteHabilidad(idioma.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+                <button (click)="deleteHabilidad(idioma.id)" class="no-border" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
             </div>

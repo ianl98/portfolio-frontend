@@ -4,7 +4,7 @@
 
     <div class="btn-add g-0 mx-3">
   
-        <app-add-skill></app-add-skill>
+        <app-add-skill *ngIf="isLogged"></app-add-skill>
 
     </div>
 
@@ -18,11 +18,11 @@
 
             <p style="width: 80%;"><ngb-progressbar type="success" textType="white" [value]="habilidad.porcentaje" [showValue]="true"></ngb-progressbar></p>
   
-            <div class="btn-edit-about">
+            <div class="">
   
-                <app-edit-skill [dataEntrante]="habilidad"></app-edit-skill>
+                <app-edit-skill [dataEntrante]="habilidad" *ngIf="isLogged"></app-edit-skill>
   
-                <button (click)="deleteHabilidad(habilidad.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+                <button (click)="deleteHabilidad(habilidad.id)" class="no-border" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
             </div>

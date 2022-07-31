@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExperienciaLaboral } from '../../models/experiencia-laboral';
 import { ExperienciaLaboralService } from '../../services/experiencia-laboral.service';
 import Swal from 'sweetalert2';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-experience',
@@ -10,11 +11,28 @@ import Swal from 'sweetalert2';
 })
 export class ExperienceComponent implements OnInit {
 
+  isLogged = false;
+
+  isAdmin = false;
+
   experiencias: ExperienciaLaboral [] = [];
 
-  constructor(private experienciaLaboralService: ExperienciaLaboralService) { }
+  constructor(private experienciaLaboralService: ExperienciaLaboralService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    }else{
+      this.isLogged = false;
+    }
+
+    if (this.tokenService.getAuthorities().includes("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }else{
+      this.isAdmin = false;
+    }
+
     this.getExp();
   }
 

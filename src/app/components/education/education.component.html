@@ -4,7 +4,7 @@
 
     <div class="btn-add g-0 mx-3">
   
-        <app-add-education></app-add-education>
+        <app-add-education *ngIf="isLogged"></app-add-education>
 
     </div>
 
@@ -22,11 +22,11 @@
   
             <h5 class="card-text">{{educacion.institucion}}</h5>
   
-            <div class="btn-edit-about">
+            <div class="">
   
-                <app-edit-educacion [dataEntrante]="educacion"></app-edit-educacion>
+                <app-edit-educacion [dataEntrante]="educacion" *ngIf="isLogged"></app-edit-educacion>
   
-                <button (click)="deleteEducacion(educacion.id)" class="no-border"><i class="fas fa-trash text-dark"></i></button>
+                <button (click)="deleteEducacion(educacion.id)" class="no-border" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
   

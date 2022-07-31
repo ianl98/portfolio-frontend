@@ -4,12 +4,10 @@ export class Proyecto {
     nombre: string;
     url: string;
     descripcion: string;
-    tecnologias: Tecnologia[];
 
-    constructor(nombre: string, url: string, descripcion: string, tecnologias: Tecnologia[]){
+    constructor(nombre: string, url: string, descripcion: string){
         this.nombre = nombre;
         this.url = url;
         this.descripcion = descripcion;
-        this.tecnologias = tecnologias;
     }
 }

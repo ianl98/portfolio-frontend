@@ -1,0 +1,39 @@
+<!-- Button trigger modal -->
+<a type="button" data-bs-toggle="modal" data-bs-target="#addProyecto"><i class="fas fa-plus text-dark"></i></a>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="form" (ngSubmit)="onCreate()" enctype="multipart/form-data" method="post">
+                <div class="row mb-3">
+                  <label for="nombre" class="col-form-label">Nombre</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="descripcion" class="col-form-label">Descripción</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" rows="10" cols="50"></textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="url" class="col-form-label">Url</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" id="url" name="url" formControlName="url">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>

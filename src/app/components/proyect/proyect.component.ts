@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/models/educacion';
-import { EducacionService } from 'src/app/services/educacion.service';
+import { Proyecto } from '../../models/proyecto';
+import { ProyectoService } from '../../services/proyecto.service';
 import Swal from 'sweetalert2';
 import { TokenService } from '../../services/token.service';
 
 @Component({
-  selector: 'app-education',
-  templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css']
+  selector: 'app-proyect',
+  templateUrl: './proyect.component.html',
+  styleUrls: ['./proyect.component.css']
 })
-export class EducationComponent implements OnInit {
+export class ProyectComponent implements OnInit {
 
   isLogged = false;
 
   isAdmin = false;
 
-  educaciones: Educacion [] = [];
+  proyectos : Proyecto [] = [];
 
-  constructor(private educacionService : EducacionService, private tokenService: TokenService) { }
+  constructor(private proyectoService: ProyectoService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
 
@@ -33,20 +33,23 @@ export class EducationComponent implements OnInit {
       this.isAdmin = false;
     }
 
-    this.getEdu();
+    this.getProyectos();
+
   }
 
-  getEdu(): void {
-    this.educacionService.getEducaciones().subscribe({next: data => {
-      this.educaciones = data;
+  getProyectos(){
+
+    this.proyectoService.getProyectos().subscribe({next: data => {
+      this.proyectos = data;
     },
     error: err => {
       console.log(err);
     }
   })
+
   }
 
-  deleteEducacion(id: any){
+  deleteProeycto(id: any){
     Swal.fire({
       title: '¿Está seguro de Eliminar?',
       text: "No se podrá revertir",
@@ -59,16 +62,16 @@ export class EducationComponent implements OnInit {
       
     }).then((result) => {
       if (result.isConfirmed) {
-        this.educacionService.deleteEducacion(id).subscribe({next: data => {
+        this.proyectoService.deleteProyecto(id).subscribe({next: data => {
           console.log(data);
           Swal.fire({
             icon: 'success',
             title: 'Éxito',
-            text: 'Se ha eliminado correctamente la educacion',
+            text: 'Se ha eliminado correctamente el proyecto',
             allowOutsideClick: false,
           }).then((result) =>{
             if (result.isConfirmed) {
-              this.getEdu();
+              this.getProyectos();
             }
           })
         },
@@ -76,7 +79,7 @@ export class EducationComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Fallo al eliminar la educacion',
+            text: 'Fallo al eliminar el proyecto',
             allowOutsideClick: false
           })
           console.log(err)

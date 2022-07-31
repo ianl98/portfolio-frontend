@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Idioma } from '../../models/idioma';
 import { IdiomaService } from '../../services/idioma.service';
 import Swal from 'sweetalert2';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-idioma',
@@ -10,11 +11,27 @@ import Swal from 'sweetalert2';
 })
 export class IdiomaComponent implements OnInit {
 
+  isLogged = false;
+
+  isAdmin = false;
+
   idiomas: Idioma [] = [];
 
-  constructor(private idiomaService: IdiomaService) { }
+  constructor(private idiomaService: IdiomaService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    }else{
+      this.isLogged = false;
+    }
+
+    if (this.tokenService.getAuthorities().includes("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }else{
+      this.isAdmin = false;
+    }
 
     this.getLang();
 

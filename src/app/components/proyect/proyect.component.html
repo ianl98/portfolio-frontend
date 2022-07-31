@@ -1,0 +1,37 @@
+<div class="card mt-3 card-border">
+    
+    <h3 class="card-title g-0 mx-3">Proyectos</h3>
+  
+    <div class="btn-add g-0 mx-3">
+  
+        <app-add-proyect *ngIf="isLogged"></app-add-proyect>
+  
+    </div>
+  
+    <div class="row g-0 mx-3 mt-2" *ngFor="let proyecto of proyectos">
+  
+        <div class="col-md-12">
+          
+        <div class="card-body">
+  
+            <h5 class="card-text">{{proyecto.nombre}}</h5>
+  
+            <div class="">
+  
+                <app-edit-proyect [dataEntrante]="proyecto" *ngIf="isLogged"></app-edit-proyect>
+  
+                <button (click)="deleteProeycto(proyecto.id)" class="no-border bg-white" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
+    
+            </div>
+  
+              <p class="card-text">{{proyecto.descripcion}}</p>
+  
+              <a [href]="proyecto.url" target="_blank">URl del proyecto</a>
+  
+            </div>
+  
+          </div>
+  
+          </div>
+  
+        </div>

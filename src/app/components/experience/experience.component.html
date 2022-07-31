@@ -4,7 +4,7 @@
 
   <div class="btn-add g-0 mx-3">
 
-      <app-add-experience></app-add-experience>
+      <app-add-experience *ngIf="isLogged"></app-add-experience>
 
   </div>
 
@@ -22,11 +22,11 @@
 
           <h5 class="card-text">{{experiencia.empresa}}</h5>
 
-          <div class="btn-edit-about">
+          <div class="">
 
-              <app-edit-experience [dataEntrante]="experiencia"></app-edit-experience>
+              <app-edit-experience [dataEntrante]="experiencia" *ngIf="isLogged"></app-edit-experience>
 
-              <button (click)="deleteExperienciaLaboral(experiencia.id)" class="no-border bg-white"><i class="fas fa-trash text-dark"></i></button>
+              <button (click)="deleteExperienciaLaboral(experiencia.id)" class="no-border bg-white" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
   
           </div>
 

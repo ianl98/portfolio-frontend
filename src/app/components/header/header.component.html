@@ -1,18 +1,22 @@
 <header class="main-header">
     <div class="container bg-dark">
   
-        <p class="text-white">Victor Ian Lindstrom Lencina</p>
+        <img src="./assets/img/APLogo.png" alt="logo arg programa" width="150px" style="margin-top: -18px;">
   
         <nav class="main-nav">
             <ul>
                 <li>
-                    <a href="#"><i class="fab fa-facebook-square fs-2 text-secondary"></i></a>
+                  <a href="https://github.com/ianl98" target="_blank"><i class="fab fa-github-square fs-2 text-secondary"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fab fa-instagram fs-2 text-secondary"></i></a>
+                    <a href="https://www.facebook.com/ian.lindstrom.1" target="_blank"><i class="fab fa-facebook-square fs-2 text-secondary"></i></a>
                 </li>
                 <li>
-                    <a href="#"><button type="button" class="btn btn-outline-success mb-3">Login</button></a>
+                    <a href="https://www.instagram.com/ian.lindstrom.1" target="_blank"><i class="fab fa-instagram fs-2 text-secondary"></i></a>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-outline-success mb-3" (click)="login()" *ngIf="!isLogged">Login</button>
+                    <button type="button" class="btn btn-outline-danger mb-3" (click)="onLogOut()" *ngIf="isLogged">LogOut</button>
                 </li>
             </ul>
         </nav>
@@ -27,7 +31,7 @@
   
     <img src="{{'http://localhost:8080/api/persona/getImage/'+persona.id}}" class="profile-picture" alt="foto mia">
   
-    <app-edit-person [dataEntrante]="persona"></app-edit-person>
+    <app-edit-person [dataEntrante]="persona" *ngIf="isLogged"></app-edit-person>
   
     <div class="card-body">
   

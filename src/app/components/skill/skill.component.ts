@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Habilidad } from '../../models/habilidad';
 import { HabilidadService } from '../../services/habilidad.service';
 import Swal from 'sweetalert2';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-skill',
@@ -10,11 +11,28 @@ import Swal from 'sweetalert2';
 })
 export class SkillComponent implements OnInit {
 
+  isLogged = false;
+
+  isAdmin = false;
+
   habilidades: Habilidad [] = [];
 
-  constructor(private habilidadService:HabilidadService) { }
+  constructor(private habilidadService:HabilidadService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    }else{
+      this.isLogged = false;
+    }
+
+    if (this.tokenService.getAuthorities().includes("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }else{
+      this.isAdmin = false;
+    }
+    
     this.getHab();
   }
 

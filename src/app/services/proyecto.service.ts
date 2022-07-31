@@ -27,7 +27,4 @@ export class ProyectoService {
     return this.httpClient.delete<any>(this.proyectoURL + `delete/${id}`);
   }
 
-  public getTecnologias(id: number): Observable<any>{
-    return this.httpClient.get<any>(this.proyectoURL + `tecnologias/${id}`);
-  }
 }

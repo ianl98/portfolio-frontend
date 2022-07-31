@@ -10,7 +10,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEducationComponent } from './components/add-education/add-education.component';
-import { RouterModule, Routes } from '@angular/router';
 import { EditEducacionComponent } from './components/edit-educacion/edit-educacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
@@ -25,11 +24,15 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
 import { TecnologyComponent } from './components/tecnology/tecnology.component';
 import { AddTecnologyComponent } from './components/add-tecnology/add-tecnology.component';
 import { EditTecnologyComponent } from './components/edit-tecnology/edit-tecnology.component';
+import { ProyectComponent } from './components/proyect/proyect.component';
+import { AddProyectComponent } from './components/add-proyect/add-proyect.component';
+import { EditProyectComponent } from './components/edit-proyect/edit-proyect.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './components/home/home.component';
+import { interceptorProvider } from './services/interceptor.service';
 
 
-const appRoutes: Routes = [
-  {path: '', component: AppComponent}
-]; 
 
 @NgModule({
   declarations: [
@@ -51,17 +54,22 @@ const appRoutes: Routes = [
     EditPersonComponent,
     TecnologyComponent,
     AddTecnologyComponent,
-    EditTecnologyComponent
+    EditTecnologyComponent,
+    ProyectComponent,
+    AddProyectComponent,
+    EditProyectComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
