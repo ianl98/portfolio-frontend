@@ -21,7 +21,7 @@
                         <label for="foto" class="col-form-label">Logo Institución</label>
                         <div class="col-sm-12">
                           <input type="file" class="form-control" id="foto" accept="image/*" name="foto" (change)="onImageUpload($event)" formControlName="foto">
-                          <img src="{{'http://localhost:8080/api/educacion/getImage/'+dataEntrante.id}}" height="200" *ngIf="!imgUrl">
+                          <img src="{{'https://portfolio-backend-argprog.herokuapp.com/api/educacion/getImage/'+dataEntrante.id}}" height="200" *ngIf="!imgUrl">
                           <img [src]="imgUrl" height="200">
                         </div>
                       </div>

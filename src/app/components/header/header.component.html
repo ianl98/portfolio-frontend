@@ -6,6 +6,9 @@
         <nav class="main-nav">
             <ul>
                 <li>
+                  <a href="https://www.linkedin.com/in/victor-ian-lindstrom-lencina-00b0331b5/" target="_blank"><i class="fab fa-linkedin fs-2 text-secondary"></i></a>
+                </li>
+                <li>
                   <a href="https://github.com/ianl98" target="_blank"><i class="fab fa-github-square fs-2 text-secondary"></i></a>
                 </li>
                 <li>
@@ -29,7 +32,7 @@
   
     <img src="./assets/img/bg-portfolio.jpg" class="img-fluid card-border bg-picture" alt="fondo de portfolio">
   
-    <img src="{{'http://localhost:8080/api/persona/getImage/'+persona.id}}" class="profile-picture" alt="foto mia">
+    <img src="{{'https://portfolio-backend-argprog.herokuapp.com/api/persona/getImage/'+persona.id}}" class="profile-picture" alt="foto mia">
   
     <app-edit-person [dataEntrante]="persona" *ngIf="isLogged"></app-edit-person>
   
@@ -40,6 +43,8 @@
       <p class="card-text">{{persona.titulo}}</p>
   
       <p class="card-text">{{persona.localidad}}</p>
+
+      <p class="card-text">Contacto: ianlvictor98@gmail.com</p>
         
     </div>
   </div>

@@ -7,7 +7,7 @@ import { Nivel } from '../models/nivel';
   providedIn: 'root'
 })
 export class NivelService {
-  nivelURL = 'http://localhost:8080/api/nivel/';
+  nivelURL = 'https://portfolio-backend-argprog.herokuapp.com/api/nivel/';
 
   constructor(private httpClient: HttpClient) { }
 

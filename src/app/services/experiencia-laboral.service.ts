@@ -8,7 +8,7 @@ import { ExperienciaLaboral } from '../models/experiencia-laboral';
 })
 export class ExperienciaLaboralService {
 
-  experienciaLaboarlURL = 'http://localhost:8080/api/experienciaLaboral/';
+  experienciaLaboarlURL = 'https://portfolio-backend-argprog.herokuapp.com/api/experienciaLaboral/';
 
   constructor(private httpClient: HttpClient) { }
 
