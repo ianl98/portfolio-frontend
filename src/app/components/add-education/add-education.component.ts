@@ -15,11 +15,6 @@ export class AddEducationComponent implements OnInit {
 
   form: FormGroup;
 
-  institucion = '';
-  carrera = '';
-  foto = '';
-  inicio = '';
-  fin = '';
   uploadedImage : any;
 
 
@@ -58,9 +53,9 @@ export class AddEducationComponent implements OnInit {
     }
   })*/
   
-    this.foto = this.uploadedImage.name;
+    this.form.value.foto = this.uploadedImage.name;
 
-    const educacion = new Educacion(this.institucion, this.carrera, this.foto, this.inicio, this.fin);
+    const educacion = new Educacion(this.form.value.institucion, this.form.value.carrera, this.form.value.foto, this.form.value.inicio, this.form.value.fin);
 
     const formData = new FormData();
 

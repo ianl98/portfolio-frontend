@@ -22,7 +22,7 @@
   
                 <app-edit-skill [dataEntrante]="habilidad" *ngIf="isLogged"></app-edit-skill>
   
-                <button (click)="deleteHabilidad(habilidad.id)" class="no-border" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
+                <button (click)="deleteHabilidad(habilidad.id)" class="no-border bg-white" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
             </div>

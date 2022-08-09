@@ -26,7 +26,7 @@
   
                 <app-edit-educacion [dataEntrante]="educacion" *ngIf="isLogged"></app-edit-educacion>
   
-                <button (click)="deleteEducacion(educacion.id)" class="no-border" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
+                <button (click)="deleteEducacion(educacion.id)" class="no-border bg-white" *ngIf="isLogged && isAdmin"><i class="fas fa-trash text-dark"></i></button>
     
             </div>
   
